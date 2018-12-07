@@ -14,12 +14,17 @@ public class TenantServiceImpl implements TenantService{
     TenantDao tenantDao;
 
     @Override
-    public String findByTenantID(String tenantID) {
-        String jdbcUrl = "";
+    public Tenant findByTenantID(String tenantID) {
         List<Tenant> tenantList = tenantDao.findByTenantID(tenantID);
         if(tenantList.size() == 1){
-            jdbcUrl = tenantList.get(0).getJdbc_Url();
+            return tenantList.get(0);
         }
-        return jdbcUrl;
+        return null;
+    }
+
+    @Override
+    public boolean verifyLogin(Tenant tenantUser) {
+        List<Tenant> tenantList = tenantDao.findByTenantIDAndTenantPwd(tenantUser.getTenantID(),tenantUser.getTenantPwd());
+        return tenantList.size() > 0;
     }
 }

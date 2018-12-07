@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface TenantDao extends JpaRepository<Tenant, String> {
     List<Tenant> findByTenantID(String tenantID);
+
+    List<Tenant> findByTenantIDAndTenantPwd(String tenantID, String pwd);
 }

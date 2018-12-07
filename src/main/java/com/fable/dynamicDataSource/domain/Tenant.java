@@ -18,20 +18,21 @@ public class Tenant {
     @NotEmpty(message = "租户名不能为空")
     private String tenantID;
 
-    @Column(name="jdbc_Url",length=1000)
-    @NotEmpty(message = "数据库连接不能为空")
-    private String jdbc_Url;
+    @Column(name="tenantPwd",length=100)
+    @NotEmpty(message = "租户密码不能为空")
+    private String tenantPwd;
 
-    @Column(name="date",length=30)
-    private String date;
+    @Column(name="connectionUrl",length=1000)
+    @NotEmpty(message = "数据库连接不能为空")
+    private String connectionUrl;
 
     @Column(name="type",length=200)
     private String type;
 
-    @Column(name="username",length=30)
-    private String username;
+    @Column(name="dbusername",length=30)
+    private String dbusername;
 
-    @Column(name="password",length=30)
-    private String password;
+    @Column(name="dbPwd",length=100)
+    private String dbPwd;
 
 }
